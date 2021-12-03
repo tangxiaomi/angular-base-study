@@ -1,0 +1,5 @@
+<!-- <app-hello-world></app-hello-world> -->
+<div>父组件中的值：{{defaultNum}}</div>
+<div>显示从子组件传过来的值{{valueFromChild}}</div>
+<app-outside-introduction [showNumber]="defaultNum" (curCountChange)="handlCurCountChange($event)"></app-outside-introduction>
+<button nz-button nzType="primary">Primary</button>

@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="title">通过引入外部文件实现组件声明</div>
+  <div>显示父组件传进来的值{{showNumber}}</div>
+  <button (click)="addCount()">累加并传值</button>
+  
+  <input [(ngModel)]="inputValue" (ngModelChange)="consoleValue($event)">
+  <div>{{inputValue}}</div>
+  <button nz-button nzType="primary">Primary</button>
+  
+  
+  <h1>{{title}}</h1>
+  
+    <div [ngClass]="ngClassHasColor ? 'ngclass-color' : ''">练习Ngclass的使用</div>
+    <div [ngStyle]="{'color': 'black', 'font-size': '18px'}">练习Ngstyle的使用</div>
+  
+    <ul *ngIf="userRole === 'backend'">
+    <li *ngFor="let subject of studySubjects;
+        let i  = index;
+        let counts = count;
+        first as isFirst;
+        even as isEven;
+        odd as isOdd">
+      {{ i+1 }} - {{ subject }}
+      <span style="margin-right: 10px">总条数{{counts}}</span>
+      <span *ngIf="isOdd">是奇数{{isOdd}}</span>
+      <span *ngIf="isEven">是偶数</span>
+      </li>
+    </ul>
+  
+    <div [ngSwitch]="age">
+     <span *ngSwitchCase="'12'">小学毕业</span>
+     <span *ngSwitchCase="'18'">高中毕业</span>
+     <span *ngSwitchCase="'22'">大学毕业</span>
+     <span *ngSwitchDefault>未知</span>
+    </div>
+  
+    <img [src]="itemImageUrl">
+    <button [disabled]="isDisabledBtn">Disabled Button</button>
+    <button disabled={{isDisabledBtn}}>Disabled Button</button>
+    <span [innerHtml]="spanText"></span>
+    <span innerHtml={{spanText}}></span>
+  
+    <div [class.textcolor]="isSingleClass">尝试绑定单个class</div>
+    <div [class]="multipleClass">尝试绑定多个class</div>
+  
+    <p>小明的生日是{{ birthday | date | uppercase }}</p>
+    <p>小明的生日是{{ birthday | date:"MM/dd/yy"}}</p>
+  
+    <!-- <button (click)="addCount($event, 5);consoleCount()">当前数值加1</!--> -->
+    <span>当前值是：{{curNumber}}</span>
+</div>
